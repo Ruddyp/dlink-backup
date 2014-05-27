@@ -1,7 +1,7 @@
 #!/bin/sh
-list="1.list"
+list="default.list"
 expect="expect"
-tftp="192.168.100.62"
+tftp="172.18.78.80"
 tftpdir="/srv/tftp/"
 backupdir="configs_tmp/"
 
@@ -18,8 +18,13 @@ do
 
     # cfg extesion is fix for SNR
     config="$ip.cfg"
-
     echo $ip
+    touch $tftpdir/$config
+    chmod -R 777 $tftpdir
+    chown -R nobody $tftpdir
 
     $expect dlink.exp $ip $user $pass $config $tftp && cp $tftpdir/$config $backupdir
+
+    rm -f $tftpdir/$config
 done
+
