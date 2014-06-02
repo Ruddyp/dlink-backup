@@ -117,8 +117,8 @@ expect {
 	set greeting "#"
 	set success "Done." 
     } 
-
-    #"DGS-3650" {
+    # "DGS-3627" || "DGS-3650"
+    #    {
     #    set username "UserName:"
     #    set password "PassWord:"
     #    set upload "upload configuration $tftp $config"

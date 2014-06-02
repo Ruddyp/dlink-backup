@@ -30,7 +30,9 @@ D-Link
 * dlink DES-3200-28
 * dlink DES-3526
 * dlink DES-3552
-* dlink DGS-3312SR
+* dlink DGS-3312S
+* dlink DGS-3627
+* dlink DGS-3650
 
 SNR
 ---

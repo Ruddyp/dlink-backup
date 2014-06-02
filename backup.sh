@@ -1,9 +1,21 @@
 #!/bin/sh
-list="default.list"
+
+
+list=$1
 expect="expect"
-tftp="172.18.78.80"
-tftpdir="/srv/tftp/"
-backupdir="configs_tmp/"
+tftp=$2
+tftpdir=$3
+backupdir=$4
+
+
+if [ $# -ne 4 ] 
+then
+     echo "Not enough arguments or too much arguments"
+     echo "Syntax: <list> <IP> <tftp directories> <backup directories>" 
+     echo "Example: ./backup.sh random.list 10.10.10.20 /srv/tftp config_recup/"
+     exit
+fi
+
 
 
 which $expect || echo "please install 'expect' and try again."
@@ -24,7 +36,12 @@ do
     chown -R nobody $tftpdir
 
     $expect dlink.exp $ip $user $pass $config $tftp && cp $tftpdir/$config $backupdir
-
+ 
     rm -f $tftpdir/$config
+    
+    sed -i -e '/create/,/disable/{ /create/b;/disable/b; s/.*/******/;}' /home/ruddy/dlinkgithub/configs_tmp/172.18.78.11.cfg 
+    sed -ie 's///'    /home/ruddy/dlinkgithub/configs_tmp/172.18.78.11.cfg
+    
+    
 done
 
