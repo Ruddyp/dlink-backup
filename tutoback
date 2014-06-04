@@ -36,7 +36,7 @@ Pour visualiser la config allez dans config_tmp/ et tapez :
  vim “Ip_switch”.cfg
 
 Exemple: vim 10.10.10.20.cfg
-
+ok
 
 
 
