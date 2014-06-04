@@ -13,7 +13,7 @@
  chown -R nobody /srv/tftp
 
 Les paquets à installer : ssh, vim, expect, git & xinetd
-apt-get install ssh #de même pour les autres paquets
+apt-get install ssh vim expect git xinetd 
 
 Ensuite chercher dlink-backup sur GitHub et forker le projet de Ruddyp. 
  git clone **url récuperée**
