@@ -31,7 +31,9 @@ Lancez la commande (ceci est un exemple) :
 La commande récupère la configuration du/des switchs.
 
 Utiliser plutôt le script switch.sh afin de push sur GitLab 
+
     ./switch.sh
+
 Note: Le fichier switch.sh est à modifié suivant vos besoin.
 
 Pour visualiser la config allez dans config_tmp/ et tapez :
