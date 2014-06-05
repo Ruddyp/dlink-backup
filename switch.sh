@@ -1,14 +1,51 @@
 #!/bin/sh
 
-# Annotation Change IP and backup directories for your own configuration
-ip="172.18.78.90"
-dst="../config_tmp"
+# Read configuration file
+. ./switch.conf
 
-# Fetch configurations from switches list
-./backup.sh switch.list $ip /srv/tftp "$dst"
+# Check if expect is installed
+which $expect || echo "please install 'expect' and try again."
+which $expect || exit 5
+
+# Create folders if required
+if [ ! -d "$backupdir" ];then
+  mkdir "$backupdir"
+fi
+
+if [ ! -d "$tftpdir/$config" ]; then
+  touch "$tftpdir/$config"
+  chmod -R 777 "$tftpdir"
+  chown -R nobody "$tftpdir"
+fi
+
+# loop
+cat "$list" | while read a
+do
+
+    if [ "$a" = "" ]
+    then
+        continue
+    fi
+
+    ip=$(echo $a | cut -f 1 -d ";")
+    user=$(echo $a | cut -f 2 -d ";")
+    pass=$(echo $a | cut -f 3 -d ";")
+
+    # cfg extesion is fix for SNR
+    config="${ip}.cfg"
+    echo $ip
+
+    $expect dlink.exp $ip $user $pass $config "$tftp" && cp "$tftpdir/$config" "$backupdir"
+
+    rm -f "$tftpdir/$config"
+
+    # replace...
+    sed -i -e '/create/p;/create/,+2d' "${backupdir}/${ip}.cfg"
+
+done
 
 # Commit new configurations and push to Gitlab
-cd "$dst"
+cd "$backupdir"
 git add *cfg
 git commit -m "Configurations `date +%Y-%m-%d\ %H:%M`"
 git push origin master

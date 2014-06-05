@@ -25,21 +25,20 @@ _______________________________________________________________________________
     10.10.10.26;user;pass;
 _______________________________________________________________________________
 
-Lancez la commande (ceci est un exemple) :
+Editer le fichier switch.conf.ini
 
-    ./backup.sh truc.list 10.10.10.20 /srv/tftp config_tmp
-La commande récupère la configuration du/des switchs.
+    vim  switch.conf.ini
 
-Utiliser plutôt le script switch.sh qui exécutera le script backup.sh 
-et va push sur GitLab. 
+Adaptez ensuite le fichier switch.conf.ini suivant vos besoins.
+Lancez la commande :
+
+    cp switch.conf.ini switch.conf
+
+Puis lancez la commande :
 
     ./switch.sh
 
-Note: Le fichier switch.sh est à modifié suivant vos besoins.
+Pour visualiser la config allez dans $backupdir et tapez :
 
-Pour visualiser la config allez dans config_tmp/ et tapez :
+    less $ip.cfg
 
-    less “Ip_switch”.cfg
-
-Exemple: 
-    less 10.10.10.20.cfg
