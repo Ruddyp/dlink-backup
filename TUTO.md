@@ -25,14 +25,14 @@ _______________________________________________________________________________
     10.10.10.26;user;pass;
 _______________________________________________________________________________
 
-Editer le fichier switch.conf.ini
-
-    vim  switch.conf.ini
-
-Adaptez ensuite le fichier switch.conf.ini suivant vos besoins.
-Lancez la commande :
+Créer votre fichier de configuration :
 
     cp switch.conf.ini switch.conf
+
+Adaptez ensuite le fichier switch.conf suivant vos besoins.
+Lancez la commande :
+
+    vim switch.conf
 
 Puis lancez la commande :
 
