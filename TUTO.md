@@ -28,14 +28,15 @@ _______________________________________________________________________________
 Lancez la commande (ceci est un exemple) :
 
     ./backup.sh truc.list 10.10.10.20 /srv/tftp config_tmp
-La commande récupère la configuration du/des switch.
-Mais elle ne la push pas sur GitLab.
+La commande récupère la configuration du/des switchs.
 
-Utiliser plutôt:
+Utiliser plutôt le script switch.sh afin de push sur GitLab 
     ./switch.sh
+Note: Le fichier switch.sh est à modifié suivant vos besoin.
 
 Pour visualiser la config allez dans config_tmp/ et tapez :
 
     less “Ip_switch”.cfg
 
-Exemple: less 10.10.10.20.cfg
+Exemple: 
+    less 10.10.10.20.cfg
