@@ -15,11 +15,11 @@ Ensuite chercher dlink-backup sur GitHub et forker le projet de Ruddyp :
 
     git clone https://github.com/Ruddyp/dlink-backup
 
-Créer un fichier “Nom_fichier”.list mettez-y les paramètre de vos switch comme
+Créer un fichier switch.list mettez-y les paramètres de vos switchs comme
 ceci --> IP;Username;password;
 _______________________________________________________________________________
 
-    #truc.list
+    #switch.list
 
     10.10.10.20;user;pass;
     10.10.10.26;user;pass;
@@ -28,9 +28,14 @@ _______________________________________________________________________________
 Lancez la commande (ceci est un exemple) :
 
     ./backup.sh truc.list 10.10.10.20 /srv/tftp config_tmp
+La commande récupère la configuration du/des switch.
+Mais elle ne la push pas sur GitLab.
+
+Utiliser plutôt:
+    ./switch.sh
 
 Pour visualiser la config allez dans config_tmp/ et tapez :
 
-    vim “Ip_switch”.cfg
+    less “Ip_switch”.cfg
 
-Exemple: vim 10.10.10.20.cfg
+Exemple: less 10.10.10.20.cfg
