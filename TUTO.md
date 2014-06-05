@@ -30,7 +30,8 @@ Lancez la commande (ceci est un exemple) :
     ./backup.sh truc.list 10.10.10.20 /srv/tftp config_tmp
 La commande récupère la configuration du/des switchs.
 
-Utiliser plutôt le script switch.sh afin de push sur GitLab 
+Utiliser plutôt le script switch.sh qui exécutera le script backup.sh 
+et va push sur GitLab. 
 
     ./switch.sh
 
