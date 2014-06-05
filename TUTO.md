@@ -11,7 +11,7 @@
     chmod -R 777 /srv/tftp
     chown -R nobody /srv/tftp
 
-Ensuite chercher dlink-backup sur GitHub et forker le projet de Ruddyp :
+Ensuite forker le projet de Ruddyp sur github :
 
     git clone https://github.com/Ruddyp/dlink-backup
 
@@ -35,7 +35,7 @@ et va push sur GitLab.
 
     ./switch.sh
 
-Note: Le fichier switch.sh est à modifié suivant vos besoin.
+Note: Le fichier switch.sh est à modifié suivant vos besoins.
 
 Pour visualiser la config allez dans config_tmp/ et tapez :
 
