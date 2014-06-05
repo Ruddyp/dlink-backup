@@ -31,6 +31,7 @@ expect {
         set greeting "#"
         set success "Done."
     } 
+
 }
 
 expect "$username"
@@ -52,5 +53,3 @@ expect "$greeting"
 
 send "$logout\r"
 expect eof
-
-
