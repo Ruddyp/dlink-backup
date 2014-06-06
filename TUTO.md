@@ -15,6 +15,8 @@ Ensuite forker le projet de Ruddyp sur github :
 
     git clone https://github.com/Ruddyp/dlink-backup
 
+Faire le nécessaire pour avoir le droit d'écrire sur GitLab.
+
 Créer un fichier switch.list mettez-y les paramètres de vos switchs comme
 ceci --> IP;Username;password;
 _______________________________________________________________________________

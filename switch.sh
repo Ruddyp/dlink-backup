@@ -12,11 +12,6 @@ if [ ! -d "$backupdir" ];then
   mkdir "$backupdir"
 fi
 
-if [ ! -d "$tftpdir/$config" ]; then
-  touch "$tftpdir/$config"
-  chmod -R 777 "$tftpdir"
-  chown -R nobody "$tftpdir"
-fi
 
 # loop
 cat "$list" | while read a
@@ -35,12 +30,19 @@ do
     config="${ip}.cfg"
     echo $ip
 
+    if [ ! -d "$tftpdir/$config" ]; then
+      touch "$tftpdir/$config"
+    fi
+    chmod -R 777 "$tftpdir"
+    chown -R nobody "$tftpdir"
+    
+
     $expect dlink.exp $ip $user $pass $config "$tftp" && cp "$tftpdir/$config" "$backupdir"
 
     rm -f "$tftpdir/$config"
 
     # replace...
-    sed -i -e '/create/p;/create/,+2d' "${backupdir}/${ip}.cfg"
+    sed -i -e '/create\saccount/p;/create\saccount/,+2d' "${backupdir}/${ip}.cfg"
 
 done
 
