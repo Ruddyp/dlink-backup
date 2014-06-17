@@ -42,12 +42,14 @@ do
     rm -f "$tftpdir/$config"
 
     # replace...
-    sed -i -e '/create\saccount/p;/create\saccount/,+2d' "${backupdir}/${ip}.cfg"
-
+    sed -i -e '/create\saccount/p;/create\saccount/,+2d' \
+           -e 's/^ username \(\w\+\) password .*/# username \1 password *******/' \
+           -e 's///g' \
+	   "${backupdir}/${ip}.cfg" 
 done
 
 # Commit new configurations and push to Gitlab
-cd "$backupdir"
-git add *cfg
-git commit -m "Configurations `date +%Y-%m-%d\ %H:%M`"
-git push origin master
+#cd "$backupdir"
+#git add *cfg
+#git commit -m "Configurations `date +%Y-%m-%d\ %H:%M`"
+#git push origin master
