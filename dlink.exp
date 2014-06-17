@@ -6,12 +6,21 @@ set pass [lindex $argv 2]
 set config [lindex $argv 3]
 set tftp [lindex $argv 4]
 spawn telnet $host
-
+# Transmission finished, file length
 expect {
 
     eof  {exit}
 
-    
+    "DGS-1510" {
+        set username "Username:"
+        set password "Password:"
+        set upload  "copy running-config tftp: //$tftp/$config \r\r"
+        set upload2 "copy running-config tftp: //10.90.90.95/ip.cfg \r\r"
+        set logout "logout"
+        set greeting "#"
+	set success " Transmission finished"
+    }
+
     "DGS-3627" {
 	set username "UserName:"
 	set password "PassWord:"
@@ -40,11 +49,15 @@ expect "$password"
 send "$pass\r"
 
 send "$upload\r"
-expect {
+sleep 3
+#send "\r\r"
+
+expect {      
     "$success" {
     }
     "$greeting" {
         send "$upload2\r"
+#	send "\r\r"
         expect "$success"
     }
 }
