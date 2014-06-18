@@ -11,6 +11,16 @@ expect {
 
     eof  {exit}
 
+    "DGS-3120-48TC" {
+        set username "UserName:"
+        set password "PassWord:"
+        set upload  "upload cfg_toTFTP $tftp dest_file $config"
+        set upload2 "upload cfg_toTFTP $tftp dest_file $config"
+        set logout "logout"
+        set greeting "#"
+        set success "Done."
+    }
+
     "DGS-1510" {
         set username "Username:"
         set password "Password:"
