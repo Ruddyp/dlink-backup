@@ -58,6 +58,8 @@ send "$user\r"
 expect "$password"
 send "$pass\r"
 
+
+
 send "$upload\r"
 sleep 1
 
@@ -69,7 +71,9 @@ expect {
         send "$upload2\r"
 
         expect "$success"
+
     }
+	
 }
 
 expect "$greeting"
