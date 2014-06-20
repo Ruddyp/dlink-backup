@@ -1,6 +1,6 @@
 /1/ Saisir dans le terminal :
 
-    apt-get install ssh vim expect git xinetd tftpd
+    apt-get install ssh vim expect git xinetd tftpd telnet
 
 /2/ On doit ensuite créer le répertoire ou seront stockés les fichiers des
   configurations dans/srv/tftp.
@@ -17,9 +17,32 @@ Ensuite forker le projet de Ruddyp sur github :
     cd dlink-backup/
 
 Faire le nécessaire pour avoir le droit d'écrire sur GitLab.
+1-
 
-Créer un fichier switch.list dans le répertoire courant mettez-y les paramètres de vos switchs comme
-ceci --> IP;Username;password;
+    cd ~/.ssh
+    ls -al
+
+Regarde si vous avez déjà une clé ssh ( en général id_rsa.pub ou id_dsa.pub)
+Si aucune clé n'est présente allez à l'étape 2 sinon allez à l'étape3
+
+2-Générer votre clé
+
+    ssh-keygen -t rsa -C "your_email@example.com"
+
+Ensuite suivez les instructions.
+
+3-Copiez votre clé publique qui est dans /Users/you/.ssh/id_rsa.pub.(Sans laissez
+d'espace/ligne blanche)
+Ajoutez la ensuite sur GitHub
+
+4- Testez si tout fonctionne en tapant:
+
+   ssh -T git@github.com
+
+Suivez les instructions et validez cette étape si votre username apparait.
+
+Créer un fichier switch.list dans le répertoire courant mettez-y les paramètres
+ de vos switchs comme ceci --> IP;Username;password;
 _______________________________________________________________________________
 
     #switch.list
