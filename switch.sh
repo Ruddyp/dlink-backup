@@ -46,10 +46,12 @@ do
            -e 's/^ username \(\w\+\) password .*/# username \1 password *******/' \
            -e 's///g' \
 	   "${backupdir}/${ip}.cfg" 
-done
 
-# Commit new configurations and push to Gitlab
-#cd "$backupdir"
-#git add *cfg
-#git commit -m "Configurations `date +%Y-%m-%d\ %H:%M`"
-#git push origin master
+    exit
+    # Commit new configurations and push to Gitlab
+    cd "$backupdir"
+    git add *cfg
+    git commit -m "Configurations `date +%Y-%m-%d\ %H:%M`"
+    git push origin master
+
+done
