@@ -59,15 +59,15 @@ expect "$password"
 send "$pass\r"
 
 send "$upload\r"
-sleep 3
-#send "\r\r"
+sleep 1
+
 
 expect {      
     "$success" {
     }
     "$greeting" {
         send "$upload2\r"
-#	send "\r\r"
+
         expect "$success"
     }
 }
