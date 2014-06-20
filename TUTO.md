@@ -17,13 +17,14 @@ Ensuite forker le projet de Ruddyp sur github :
     cd dlink-backup/
 
 Faire le nécessaire pour avoir le droit d'écrire sur GitLab.
+
 1-
 
     cd ~/.ssh
     ls -al
 
 Regarde si vous avez déjà une clé ssh ( en général id_rsa.pub ou id_dsa.pub)
-Si aucune clé n'est présente allez à l'étape 2 sinon allez à l'étape3
+Si aucune clé n'est présente allez à l'étape 2 sinon allez à l'étape 3
 
 2-Générer votre clé
 
@@ -41,7 +42,7 @@ Ajoutez la ensuite sur GitHub
 
 Suivez les instructions et validez cette étape si votre username apparait.
 
-Créer un fichier switch.list dans le répertoire courant mettez-y les paramètres
+Créer un fichier switch.list dans le répertoire dlink-backup/ mettez-y les paramètres
  de vos switchs comme ceci --> IP;Username;password;
 _______________________________________________________________________________
 
