@@ -44,8 +44,8 @@ expect {
     "DGS-3650"  {
         set username "UserName:"
         set password "PassWord:"
-        set upload "upload configuration $tftp $config"
-        set upload2 "upload configuration $tftp $config"
+        set upload "upload cfg_toTFTP $tftp dest_file $config"
+        set upload2 "upload cfg_toTFTP $tftp dest_file $config"
         set logout "logout"
         set greeting "#"
         set success "Done."
