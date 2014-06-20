@@ -1,13 +1,12 @@
 /1/ Saisir dans le terminal :
 
-    apt-get install ssh vim expect git xinetd tftpd telnet
+    apt-get install ssh vim expect git tftpd-hpa telnet
 
 /2/ On doit ensuite créer le répertoire ou seront stockés les fichiers des
   configurations dans/srv/tftp.
 
  Saisir dans le terminal :
-
-    mkdir /srv/tftp
+    
     chmod -R 777 /srv/tftp
     chown -R nobody /srv/tftp
 
@@ -61,7 +60,7 @@ Lancez la commande :
 
     vim switch.conf
 
-Puis lancez la commande :
+Puis lancez la commande(en étant root) :
 
     ./switch.sh
 
