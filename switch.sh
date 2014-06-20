@@ -47,7 +47,7 @@ do
            -e 's///g' \
 	   "${backupdir}/${ip}.cfg" 
 
-    exit
+    
     # Commit new configurations and push to Gitlab
     cd "$backupdir"
     git add *cfg
