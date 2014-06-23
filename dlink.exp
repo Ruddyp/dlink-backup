@@ -71,6 +71,7 @@ expect {
         send "$upload2\r"
 
         expect "$success"
+        exit 1 
     }
 	
 }
