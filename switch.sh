@@ -2,7 +2,7 @@
 
 # Read configuration file
 . ./switch.conf
-
+      
 # Check if expect is installed
 which $expect || echo "please install 'expect' and try again."
 which $expect || exit 5
