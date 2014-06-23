@@ -3,7 +3,7 @@
     apt-get install ssh vim expect git tftpd-hpa telnet
 
 /2/ On doit ensuite donner les droit au répertoire ou seront stockés les fichiers des
-  configurations dans/srv/tftp.
+   configurations dans/srv/tftp.
 
  Saisir dans le terminal :
     
