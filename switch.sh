@@ -53,7 +53,7 @@ do
     # replace...
     sed -i -e '/create\saccount/p;/create\saccount/,+2d' \
            -e 's/^ username \(\w\+\) password .*/# username \1 password *******/' \
-           -e 's/^M//g' \
+           -e 's///g' \
            "${backupdir}/${ip}.cfg"
 
      # Commit new configurations and push to Gitlab
